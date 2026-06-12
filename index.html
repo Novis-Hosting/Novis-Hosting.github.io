@@ -9,7 +9,7 @@
             --bg-dark: #0f1014;
             --navbar-dark: rgba(20, 20, 26, 0.95);
             --card-dark: rgba(26, 26, 36, 0.85);
-            --accent-purple: #9d4edd; /* ByteBlitz purple */
+            --accent-purple: #9d4edd; /* ByteBlitz Lila */
             --text-main: #ffffff;
             --text-secondary: #94a3b8;
             --button-border: rgba(255, 255, 255, 0.1);
@@ -29,8 +29,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            /* Placeholder for the background image from ByteBlitz */
-            background-image: linear-gradient(rgba(15, 16, 20, 0.7), rgba(15, 16, 20, 0.7)), url('https://i.imgur.com/your-image-here.jpg'); /* REPLACE WITH ACTUAL IMAGE URL */
+            background-image: linear-gradient(rgba(15, 16, 20, 0.75), rgba(15, 16, 20, 0.75)), url('https://images.unsplash.com/photo-1605899435973-ca2d1a8861cf?q=80&w=1920'); /* Minecraft-artiger Background-Platzhalter */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -59,10 +58,12 @@
         }
 
         .logo-icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             margin-right: 12px;
-            fill: var(--accent-purple);
+            fill: none;
+            stroke: var(--accent-purple);
+            stroke-width: 8;
         }
 
         .logo span {
@@ -112,14 +113,14 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 25px;
+            line-height: 1.2;
+            margin-bottom: 20px;
             letter-spacing: -1px;
         }
 
@@ -130,53 +131,58 @@
         .hero p {
             color: var(--text-secondary);
             font-size: 1.2rem;
-            max-width: 700px;
+            max-width: 750px;
             line-height: 1.6;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         /* Info Cards */
         .info-cards {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 24px;
             width: 100%;
             max-width: 1200px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .card {
             background: var(--card-dark);
-            padding: 30px;
+            padding: 30px 24px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             flex: 1;
             display: flex;
             align-items: center;
             text-align: left;
-            transition: border 0.3s;
+            transition: border 0.3s, transform 0.3s;
         }
 
         .card:hover {
             border-color: rgba(157, 78, 221, 0.4);
+            transform: translateY(-2px);
         }
 
         .card-icon {
-            width: 48px;
-            height: 48px;
-            margin-right: 25px;
-            fill: var(--accent-purple);
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+            fill: none;
+            stroke: var(--accent-purple);
+            stroke-width: 2;
+            flex-shrink: 0;
         }
 
         .card-content h3 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
         .card-content p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.5;
         }
 
@@ -186,18 +192,17 @@
             background-color: var(--accent-purple);
             color: white;
             text-decoration: none;
-            padding: 18px 40px;
-            font-size: 1.2rem;
+            padding: 16px 45px;
+            font-size: 1.15rem;
             font-weight: bold;
-            border-radius: 12px;
+            border-radius: 10px;
             transition: all 0.2s ease-in-out;
-            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
-            margin-top: 40px;
+            box-shadow: 0 4px 20px rgba(157, 78, 221, 0.4);
         }
 
         .btn-dashboard:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
+            box-shadow: 0 6px 25px rgba(157, 78, 221, 0.6);
             filter: brightness(1.1);
         }
 
@@ -207,6 +212,13 @@
             font-size: 0.85rem;
             color: var(--text-secondary);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 16, 20, 0.9);
+        }
+
+        @media (max-width: 900px) {
+            .navbar { padding: 20px 40px; }
+            .info-cards { flex-direction: column; gap: 16px; padding: 0 20px; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -214,65 +226,64 @@
 
     <nav class="navbar">
         <div class="logo">
-            <svg class="logo-icon" viewBox="0 0 100 100">
-                <path d="M 20 20 L 80 80 M 20 80 L 80 20"></path>
+            <svg class="logo-icon" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
             Novis<span>.</span>
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Games</a></li>
-            <li><a href="#">Nodes</a></li>
+            <li><a href="#">Domains</a></li>
+            <li><a href="#">Features</a></li>
             <li><a href="#">Support</a></li>
         </ul>
-        <a href="https://github.com/codespaces/cautious-engine-6v9pwpg4vj65f45pv8080" class="btn-navbar">Go to Dashboard</a>
+        <a href="https://github.com/codespaces/cautious-engine-6v9pwpg4vj65f45pw8080" class="btn-navbar">Sign In</a>
     </nav>
 
     <main class="hero">
-        <h1>Create your <span>own node</span> <br> within seconds!</h1>
-        <p>Deployment built for ultimate performance. Instant setup on premium nodes.</p>
+        <h1>Create your <span>own server</span> <br> in just a few seconds!</h1>
+        <p>Welcome to your one-stop shop for tailored game servers. Dive into endless gaming possibilities – with perfect server solutions from Novis Hosting.</p>
 
         <div class="info-cards">
             <div class="card">
-                <svg class="card-icon" viewBox="0 0 100 100">
-                    <rect x="20" y="20" width="60" height="60" rx="10" stroke-width="5" fill="none" stroke="currentColor"></rect>
-                    <path d="M 40 40 L 60 60 M 40 60 L 60 40" stroke-width="5" stroke="currentColor"></path>
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
                 <div class="card-content">
-                    <h3>INSTANT DEPLOY</h3>
-                    <p>Get up and running immediately. No waiting times.</p>
+                    <h3>UNLIMITED SLOTS</h3>
+                    <p>There are no slot limits with us. Invite as many players as you want.</p>
                 </div>
             </div>
 
             <div class="card">
-                <svg class="card-icon" viewBox="0 0 100 100">
-                    <path d="M 50 10 L 10 50 L 50 90 L 90 50 L 50 10 Z" fill="currentColor"></path>
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke-linecap="round" stroke-linejoin="round"></polygon>
                 </svg>
                 <div class="card-content">
-                    <h3>PREMIUM NODES</h3>
-                    <p>Powered by top-tier hardware for smooth performance.</p>
+                    <h3>PREMIUM HARDWARE</h3>
+                    <p>Our servers deliver mind-blowing performance with up to 512 GB RAM.</p>
                 </div>
             </div>
 
             <div class="card">
-                <svg class="card-icon" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="40" stroke-width="5" fill="none" stroke="currentColor"></circle>
-                    <path d="M 50 20 L 50 80 M 20 50 L 80 50" stroke-width="5" stroke="currentColor"></path>
+                <svg class="card-icon" viewBox="0 0 24 24">
+                    <path d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
                 <div class="card-content">
-                    <h3>24/7 AVAILABILITY</h3>
-                    <p>Access your dashboard and manage nodes at any time.</p>
+                    <h3>PERSONAL SUPPORT</h3>
+                    <p>Individual support – professional, friendly, and absolutely reliable.</p>
                 </div>
             </div>
         </div>
 
-        <a href="https://github.com/codespaces/cautious-engine-6v9pwpg4vj65f45pv8080" class="btn-dashboard">
-            Launch Your Node
+        <a href="https://github.com/codespaces/cautious-engine-6v9pwpg4vj65f45pw8080" class="btn-dashboard">
+            Launch Your Server
         </a>
     </main>
 
     <footer>
-        &copy; 2026 Novis Hosting. Built for ultimate performance.
+        &copy; 2026 Novis Hosting. All rights reserved.
     </footer>
 
 </body>
